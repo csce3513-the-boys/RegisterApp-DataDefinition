@@ -1,9 +1,9 @@
 CREATE TABLE employee (
   id uuid NOT NULL DEFAULT gen_random_uuid(),
-  employeeid int NOT NULL DEFAULT(5),
-  firstname character varying(128) NOT NULL DEFAULT('FirstName'),
-  lastname character varying(128) NOT NULL DEFAULT('Lastname'),
-  password bytea NOT NULL DEFAULT('Password'),
+  employeeid int NOT NULL DEFAULT(0),
+  firstname character varying(128) NOT NULL DEFAULT(''),
+  lastname character varying(128) NOT NULL DEFAULT(''),
+  password bytea NOT NULL DEFAULT(''),
   active boolean NOT NULL DEFAULT(FALSE), 
   classification int NOT NULL DEFAULT(0),
   managerid uuid NOT NULL DEFAULT CAST('00000000-0000-0000-0000-000000000000' AS uuid),
@@ -43,4 +43,3 @@ CREATE INDEX ix_activeuser_employeeid
 CREATE INDEX ix_activeuser_sessionkey
   ON activeuser
   USING btree(sessionkey);
-
